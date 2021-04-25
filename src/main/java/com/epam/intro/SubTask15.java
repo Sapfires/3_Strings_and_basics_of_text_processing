@@ -4,20 +4,16 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SubTask13 {
+public class SubTask15 {
     public static void main(String[] args) {
         String a = readStringVariable("string: ");
-        Pattern pattern = Pattern.compile("\\S+");
+        Pattern pattern = Pattern.compile("[!?.]");
         Matcher matcher = pattern.matcher(a);
-        String max = "";
+        int count = 0;
         while ( matcher.find()) {
-            String current = matcher.group();
-            if (max.length() == current.length()) {
-                throw new RuntimeException("There is more than one the longest word");
-            }
-            max = current.length() > max.length() ? current : max;
+            count++;
         }
-        System.out.println(max);
+        System.out.println(count);
     }
 
     public static String readStringVariable(String variableName) {
